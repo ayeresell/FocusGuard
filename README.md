@@ -11,63 +11,63 @@
   <img src="https://img.shields.io/badge/license-MIT%20%2B%20Commons%20Clause-red?style=flat"/>
 </p>
 
-<h2 align="center">FocusGuard — трекер продуктивности для macOS</h2>
-<p align="center">Приложение в строке меню, которое в реальном времени отслеживает активные приложения и использует ИИ для классификации твоих сессий.</p>
+<h2 align="center">FocusGuard — macOS Productivity Tracker</h2>
+<p align="center">A menu bar app that monitors your active apps in real time and uses AI to categorize your focus sessions.</p>
 
 ---
 
-## Как это работает
+## How It Works
 
 ```
 NSWorkspace                Accessibility API
      │                           │
      ▼                           ▼
- Активное приложение  +  Заголовок окна
+ Active App Name  +  Window Title
            │
            ▼
      TrackingService
-     (каждые N сек)
+     (polls every N sec)
            │
            ▼
-      Claude API  ──▶  Категория (Deep Work / Social / etc.)
+      Claude API  ──▶  Category (Deep Work / Social / etc.)
            │
            ▼
-       SwiftData  ──▶  История сессий
+       SwiftData  ──▶  Session History
 ```
 
-## Возможности
+## Features
 
-- **Автоматический трекинг** — отслеживает приложение и заголовок окна каждые несколько секунд
-- **ИИ-категоризация** — Claude API классифицирует активность в реальном времени
-- **Минималистичный интерфейс** — живёт в строке меню, не мешает работе
-- **Гибкие правила** — создавай свои категории и правила сопоставления по ключевым словам
-- **История сессий** — все события хранятся локально через SwiftData
-- **Безопасное хранение ключа** — API-ключ хранится в Keychain, не в файлах
+- **Automatic tracking** — monitors active app and window title every few seconds
+- **AI categorization** — Claude API classifies activity in real time
+- **Minimal footprint** — lives in the menu bar, stays out of your way
+- **Custom rules** — define categories and keyword-based matching rules
+- **Session history** — all events stored locally via SwiftData
+- **Secure key storage** — API key stored in Keychain, not in files
 
-## Стек
+## Tech Stack
 
-| Слой | Технология |
-|------|-----------|
+| Layer | Technology |
+|-------|-----------|
 | UI | SwiftUI + MenuBarExtra |
-| Реактивность | `@Observable` (Observation framework) |
-| Хранилище | SwiftData |
-| Трекинг | NSWorkspace + Accessibility API |
-| ИИ | Claude API (Anthropic) |
-| Безопасность | Keychain Services |
+| Reactivity | `@Observable` (Observation framework) |
+| Storage | SwiftData |
+| Tracking | NSWorkspace + Accessibility API |
+| AI | Claude API (Anthropic) |
+| Security | Keychain Services |
 
-## Требования
+## Requirements
 
-- macOS 14 Sonoma или новее
+- macOS 14 Sonoma or later
 - Xcode 15+
-- API-ключ Anthropic
+- Anthropic API key
 
-## Запуск
+## Getting Started
 
 ```bash
 git clone https://github.com/ayeresell/FocusGuard.git
 open FocusGuard.xcodeproj
 ```
 
-1. Собери и запусти в Xcode
-2. Выдай разрешение **Accessibility** (`Системные настройки → Конфиденциальность → Универсальный доступ`)
-3. Вставь Anthropic API-ключ в настройках приложения
+1. Build & run in Xcode
+2. Grant **Accessibility** permission (`System Settings → Privacy & Security → Accessibility`)
+3. Add your Anthropic API key in the app settings
