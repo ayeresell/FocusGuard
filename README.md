@@ -1,49 +1,73 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/platform-macOS%2014%2B-lightgrey?style=flat&logo=apple&logoColor=white" />
-  <img src="https://img.shields.io/badge/Swift-5.9-F05138?style=flat&logo=swift&logoColor=white" />
-  <img src="https://img.shields.io/badge/SwiftUI-blue?style=flat&logo=swift&logoColor=white" />
-  <img src="https://img.shields.io/badge/Claude_API-CC785C?style=flat" />
-  <img src="https://img.shields.io/badge/license-MIT%20%2B%20Commons%20Clause-red?style=flat" />
+  <img src="https://app-eta-seven-61.vercel.app/banner-focusguard.svg" width="900"/>
 </p>
 
-<h1 align="center">FocusGuard</h1>
-<p align="center">macOS menu bar app that tracks your screen activity and uses AI to categorize your focus sessions in real time.</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/platform-macOS%2014%2B-lightgrey?style=flat&logo=apple&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Swift-5.9-F05138?style=flat&logo=swift&logoColor=white"/>
+  <img src="https://img.shields.io/badge/SwiftUI-blue?style=flat&logo=swift&logoColor=white"/>
+  <img src="https://img.shields.io/badge/SwiftData-purple?style=flat&logo=swift&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Claude_API-CC785C?style=flat"/>
+  <img src="https://img.shields.io/badge/license-MIT%20%2B%20Commons%20Clause-red?style=flat"/>
+</p>
+
+<h2 align="center">FocusGuard — трекер продуктивности для macOS</h2>
+<p align="center">Приложение в строке меню, которое в реальном времени отслеживает активные приложения и использует ИИ для классификации твоих сессий.</p>
 
 ---
 
-## Features
+## Как это работает
 
-- **Activity tracking** — monitors the active app and window title every few seconds via Accessibility API
-- **AI categorization** — sends activity data to Claude API and classifies it (Deep Work, Communication, Social Media, etc.)
-- **Menu bar interface** — lives in your menu bar, zero distraction
-- **Custom rules** — define your own categories and keyword-based matching rules
-- **Session history** — all events persisted locally with SwiftData
+```
+NSWorkspace                Accessibility API
+     │                           │
+     ▼                           ▼
+ Активное приложение  +  Заголовок окна
+           │
+           ▼
+     TrackingService
+     (каждые N сек)
+           │
+           ▼
+      Claude API  ──▶  Категория (Deep Work / Social / etc.)
+           │
+           ▼
+       SwiftData  ──▶  История сессий
+```
 
-## Tech Stack
+## Возможности
 
-| Layer | Technology |
-|-------|-----------|
+- **Автоматический трекинг** — отслеживает приложение и заголовок окна каждые несколько секунд
+- **ИИ-категоризация** — Claude API классифицирует активность в реальном времени
+- **Минималистичный интерфейс** — живёт в строке меню, не мешает работе
+- **Гибкие правила** — создавай свои категории и правила сопоставления по ключевым словам
+- **История сессий** — все события хранятся локально через SwiftData
+- **Безопасное хранение ключа** — API-ключ хранится в Keychain, не в файлах
+
+## Стек
+
+| Слой | Технология |
+|------|-----------|
 | UI | SwiftUI + MenuBarExtra |
-| Data | SwiftData |
-| Activity tracking | NSWorkspace + Accessibility API |
-| AI | Claude API (Anthropic) |
-| Secure storage | Keychain |
+| Реактивность | `@Observable` (Observation framework) |
+| Хранилище | SwiftData |
+| Трекинг | NSWorkspace + Accessibility API |
+| ИИ | Claude API (Anthropic) |
+| Безопасность | Keychain Services |
 
-## Requirements
+## Требования
 
-- macOS 14 Sonoma or later
+- macOS 14 Sonoma или новее
 - Xcode 15+
-- Anthropic API key
+- API-ключ Anthropic
 
-## Getting Started
+## Запуск
 
 ```bash
 git clone https://github.com/ayeresell/FocusGuard.git
 open FocusGuard.xcodeproj
 ```
 
-1. Build & run in Xcode
-2. Grant **Accessibility** permissions when prompted (`System Settings → Privacy & Security → Accessibility`)
-3. Open **Settings** in the menu bar and paste your Anthropic API key
-
-
+1. Собери и запусти в Xcode
+2. Выдай разрешение **Accessibility** (`Системные настройки → Конфиденциальность → Универсальный доступ`)
+3. Вставь Anthropic API-ключ в настройках приложения
