@@ -1,36 +1,46 @@
-# FocusGuard
+<p align="center">
+  <img src="https://img.shields.io/badge/platform-macOS%2014%2B-lightgrey?style=flat&logo=apple&logoColor=white" />
+  <img src="https://img.shields.io/badge/Swift-5.9-F05138?style=flat&logo=swift&logoColor=white" />
+  <img src="https://img.shields.io/badge/SwiftUI-blue?style=flat&logo=swift&logoColor=white" />
+  <img src="https://img.shields.io/badge/Claude_API-CC785C?style=flat" />
+</p>
 
-A macOS menu bar app that tracks your productivity by monitoring active applications and windows, then uses AI to analyze and categorize your focus sessions.
+<h1 align="center">FocusGuard</h1>
+<p align="center">macOS menu bar app that tracks your screen activity and uses AI to categorize your focus sessions in real time.</p>
+
+---
 
 ## Features
 
-- **Automatic activity tracking** — monitors active app and window title in real time
-- **AI-powered categorization** — uses Claude API to classify activities (work, social, entertainment, etc.)
-- **Menu bar interface** — always accessible, minimal footprint
-- **Custom categories and rules** — define your own productivity categories and matching rules
-- **Focus session history** — persistent storage of all activity events via SwiftData
+- **Activity tracking** — monitors the active app and window title every few seconds via Accessibility API
+- **AI categorization** — sends activity data to Claude API and classifies it (Deep Work, Communication, Social Media, etc.)
+- **Menu bar interface** — lives in your menu bar, zero distraction
+- **Custom rules** — define your own categories and keyword-based matching rules
+- **Session history** — all events persisted locally with SwiftData
 
 ## Tech Stack
 
-- Swift + SwiftUI
-- SwiftData (local persistence)
-- Accessibility API (app/window tracking)
-- Claude API (AI categorization)
-- macOS MenuBarExtra
+| Layer | Technology |
+|-------|-----------|
+| UI | SwiftUI + MenuBarExtra |
+| Data | SwiftData |
+| Activity tracking | NSWorkspace + Accessibility API |
+| AI | Claude API (Anthropic) |
+| Secure storage | Keychain |
 
 ## Requirements
 
-- macOS 14 (Sonoma) or later
-- Accessibility permissions (for window title tracking)
-- Anthropic API key (for AI features)
+- macOS 14 Sonoma or later
+- Xcode 15+
+- Anthropic API key
 
-## Setup
+## Getting Started
 
-1. Clone the repo and open `FocusGuard.xcodeproj` in Xcode
-2. Build and run
-3. Grant Accessibility permissions when prompted
-4. Add your Anthropic API key in Settings
+```bash
+git clone https://github.com/ayeresell/FocusGuard.git
+open FocusGuard.xcodeproj
+```
 
-## Screenshots
-
-_Coming soon_
+1. Build & run in Xcode
+2. Grant **Accessibility** permissions when prompted (`System Settings → Privacy & Security → Accessibility`)
+3. Open **Settings** in the menu bar and paste your Anthropic API key
