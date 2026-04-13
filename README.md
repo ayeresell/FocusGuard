@@ -45,3 +45,5 @@ open FocusGuard.xcodeproj
 1. Build & run in Xcode
 2. Grant **Accessibility** permissions when prompted (`System Settings → Privacy & Security → Accessibility`)
 3. Open **Settings** in the menu bar and paste your Anthropic API key
+
+
