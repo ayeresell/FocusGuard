@@ -42,3 +42,4 @@ struct FocusGuardApp: App {
         .menuBarExtraStyle(.window)
     }
 }
+// TODO: global keyboard shortcut for menu bar toggle
