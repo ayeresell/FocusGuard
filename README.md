@@ -16,6 +16,15 @@
 
 ---
 
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/dashboard.png" width="700"/>
+  <img src="screenshots/analytics.png" width="700"/>
+</p>
+
+---
+
 ## How It Works
 
 ```
