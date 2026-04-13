@@ -3,6 +3,7 @@
   <img src="https://img.shields.io/badge/Swift-5.9-F05138?style=flat&logo=swift&logoColor=white" />
   <img src="https://img.shields.io/badge/SwiftUI-blue?style=flat&logo=swift&logoColor=white" />
   <img src="https://img.shields.io/badge/Claude_API-CC785C?style=flat" />
+  <img src="https://img.shields.io/badge/license-MIT%20%2B%20Commons%20Clause-red?style=flat" />
 </p>
 
 <h1 align="center">FocusGuard</h1>
